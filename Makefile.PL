@@ -14,18 +14,17 @@ my %WriteMakefileArgs = (
   "DISTNAME" => "Bugle",
   "LICENSE" => "perl",
   "NAME" => "Bugle",
-  PL_FILES => { 'lib/Bugle/sub.pm.PL' => 'lib/Bugle/sub.pm' },
+  PL_FILES => { 'lib/Bugle/sub.xs.PL' => 'lib/Bugle/sub.xs' },
   "PREREQ_PM" => {
     "File::Spec" => "0.8"
   },
+  XS => { 'lib/Bugle/sub.xs' => 'lib/Bugle/sub.c' },
   "TEST_REQUIRES" => {
     "Test::More" => "0.88",
     "Test::Warn" => "0.23"
   },
   "VERSION_FROM" => "lib/Bugle.pm",
-  "test" => {
-    "TESTS" => "t/*.t"
-  }
+  clean => { FILES => 'lib/Bugle/sub.xs' },
 );
  
  
